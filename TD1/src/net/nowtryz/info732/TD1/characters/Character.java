@@ -7,10 +7,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public abstract class Character {
-    protected final List<Class<?>> bestWeapons;
+    protected final List<String> bestWeapons;
     private WeaponBehavior weaponBehavior;
 
-    public Character(Class<?>... bestWeapons) {
+    public Character(String... bestWeapons) {
         this.bestWeapons = Arrays.asList(bestWeapons);
     }
 
@@ -19,7 +19,7 @@ public abstract class Character {
     public void setWeaponBehavior(WeaponBehavior weaponBehavior) {
         this.weaponBehavior = weaponBehavior;
 
-        if (!this.bestWeapons.contains(weaponBehavior.getClass())) {
+        if (!this.bestWeapons.contains(weaponBehavior.getName().toLowerCase())) {
             Logger.getLogger().warn(this.getType() + " is very bad with " + weaponBehavior.getName() + "s");
         }
     }
@@ -29,6 +29,6 @@ public abstract class Character {
     }
 
     public String getType() {
-        return this.getClass().getName();
+        return this.getClass().getSimpleName();
     }
 }
