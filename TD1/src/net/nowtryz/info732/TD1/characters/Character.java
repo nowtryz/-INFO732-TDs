@@ -1,17 +1,20 @@
 package net.nowtryz.info732.TD1.characters;
 
 import net.nowtryz.info732.TD1.Logger;
+import net.nowtryz.info732.TD1.castle.Castle;
+import net.nowtryz.info732.TD1.castle.CastleListener;
 import net.nowtryz.info732.TD1.weapon.WeaponBehavior;
 
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class Character {
+public abstract class Character implements CastleListener {
     protected final List<String> bestWeapons;
     private WeaponBehavior weaponBehavior;
 
     public Character(String... bestWeapons) {
         this.bestWeapons = Arrays.asList(bestWeapons);
+        Castle.getInstance().register(this);
     }
 
     public abstract void fight();

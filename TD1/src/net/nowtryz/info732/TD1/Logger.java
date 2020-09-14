@@ -3,6 +3,8 @@ package net.nowtryz.info732.TD1;
 public class Logger {
     private static Logger logger;
 
+    private Logger() {}
+
     public static Logger getLogger() {
         if (logger == null) synchronized (Logger.class) {
             if (logger == null) logger = new Logger();
