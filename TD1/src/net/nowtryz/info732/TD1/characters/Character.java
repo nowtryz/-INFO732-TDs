@@ -27,6 +27,12 @@ public abstract class Character implements CastleListener {
         }
     }
 
+    @Override
+    public void onCastleCollapsed(Castle castle) {}
+
+    @Override
+    public void onCastleCollapsing(Castle castle) {}
+
     public WeaponBehavior getWeaponBehavior() {
         return weaponBehavior;
     }
